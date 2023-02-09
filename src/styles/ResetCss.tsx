@@ -89,7 +89,9 @@ const ResetCss: React.FC<Props> = ({ theme }) => {
           word-break: break-all;
           font-family: ${theme.defaultFontFamily} Arial, sans-serif;
         }
-
+        * {
+          box-sizing: border-box;
+        }
         body,
         html {
           width: 100%;
@@ -192,6 +194,15 @@ const ResetCss: React.FC<Props> = ({ theme }) => {
         select {
           vertical-align: middle;
           font-family: ${theme.defaultFontFamily} Arial, sans-serif;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          outline: none;
+          border: none;
+          padding: 0;
+          background-color: transparent;
+          color: ${(theme.textBasicColor2)};
+          font-size: 18px;
         }
         a:link,
         a:visited {
@@ -204,11 +215,6 @@ const ResetCss: React.FC<Props> = ({ theme }) => {
           outline: none !important;
           text-decoration: none;
         }
-
-        // option {
-        //   background-color: #222 !important;
-        //   color: #fff !important;
-        // }
         /* button/input/option/select/textarea disabled 공통 css */
         button:disabled,
         input:disabled,
@@ -263,6 +269,8 @@ const ResetCss: React.FC<Props> = ({ theme }) => {
           textarea {
             font-size: 16px;
             -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
             border-radius: 5px;
             -webkit-border-radius: 5px;
           }
