@@ -5,6 +5,7 @@ import { ThemeProvider } from '@emotion/react';
 import { InitTheme } from '../styles/Theme';
 import ResetCss from '../styles/ResetCss';
 import Header from 'src/components/GGHeader';
+import Footer from 'src/components/GGFooter';
 
 const App = ({ Component, pageProps }: AppProps) => {
   
@@ -21,6 +22,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <ResetCss theme={InitTheme()} />
         <Header />
         <Component {...pageProps} />
+        <Footer />
       </ThemeProvider>
     </>
   )
