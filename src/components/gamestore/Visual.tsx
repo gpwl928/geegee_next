@@ -61,7 +61,7 @@ const ViewEventBtn = styled.button`
   span {
     display: block;
     font-size: 20px;
-    font-family: ${(props) => props.theme.titleFontFamily};
+    font-family: ${(props):string => props.theme.titleFontFamily};
     color: #fff;
     transform: skew(21deg);
   }
@@ -114,7 +114,7 @@ const ContentTitle = styled.div`
   margin-bottom: 4px;
   font-size: 17px;
   font-weight: bold;
-  color: ${(props) => props.theme.textPointColor};
+  color: ${(props):string => props.theme.textPointColor};
   text-transform: uppercase;
 `;
 const Content = styled.div`
@@ -162,7 +162,6 @@ const Visual = ():React.ReactElement => {
   const [currentSubContent, setCurrentSubContent] = useState(VISUAL_DATA[0].subContent);
 
   const onSelectList = (item: object):any => {
-    console.log(item);
     if (item) {
       setCurrentItem(item.gameName);
       setCurrentBackgroundImg(item.backgroundImg);
@@ -171,14 +170,18 @@ const Visual = ():React.ReactElement => {
     } else {
       alert('게임을 찾을 수 없습니다.')
     }
-  }
+  };
+
+  const onClickBtn = ():void => {
+    alert('이벤트 페이지 준비중 입니다.');
+  };
 
   return (
     <VisualWrap backgoundImg={currentBackgroundImg}>
       <VisualLeftBoxes>
         <GameLogo src={currentLogo} alt={currentItem} />
         <SubContent>{currentSubContent}</SubContent>
-        <ViewEventBtn><span>VIEW EVENTS</span></ViewEventBtn>
+        <ViewEventBtn onClick={onClickBtn}><span>VIEW EVENTS</span></ViewEventBtn>
       </VisualLeftBoxes>
       <VisualContentListItems>
         {VISUAL_DATA && VISUAL_DATA.map((item):any => {
