@@ -206,6 +206,7 @@ const ResetCss: React.FC<Props> = ({ theme }) => {
         }
         a:link,
         a:visited {
+          color: inherit;
           text-decoration: none;
         }
         button:focus,

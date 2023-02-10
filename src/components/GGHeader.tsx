@@ -93,7 +93,7 @@ const ProfileImage = styled.div`
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: #383c73;
+  background-color: ${(props):string => props.theme.subBackgroundColor};
 `;
 const LanguageIcon = styled.div`
   width: 32px;

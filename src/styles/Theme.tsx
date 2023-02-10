@@ -7,6 +7,7 @@ export const MEDIA_SIZE = {
 
 export interface ThemeProps {
   backgroundColor: string;
+  subBackgroundColor: string;
   mainColor: string;
   mainHoverColor: string;
   mainDisabledColor: string;
@@ -27,6 +28,7 @@ export interface ThemeProps {
 export const InitTheme = (): ThemeProps => {
   return {
     backgroundColor: '#262865',
+    subBackgroundColor: '#383c73',
     mainColor: '#FF0048',
     mainHoverColor: '#FB336B',
     mainDisabledColor: '#630721',
