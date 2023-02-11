@@ -1,5 +1,7 @@
+import MainLayout from '@/components/layout/MainLayout';
+
 const GameLibrary = () => {
-  return <div> GameLibrary </div>
+  return <MainLayout> GameLibrary </MainLayout>
 };
 
 export default GameLibrary;
