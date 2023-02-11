@@ -16,18 +16,12 @@ const Main = styled.div`
   }
 `;
 
-const Test = styled.div`
-  width: 200px;
-  height: 200px;
-  background: ${(props): string => props.theme.mainColor};
-`;
-
 export const Home = () => {
   return (
     <>
-      <Main>
+      {/* <Main>
         <Test>dddddd</Test>
-      </Main>
+      </Main> */}
     </>
   )
 };
