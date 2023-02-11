@@ -1,8 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link'
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { SerializedStyles } from '@emotion/utils';
 
 const TagListItems = styled.div`
   display: flex;

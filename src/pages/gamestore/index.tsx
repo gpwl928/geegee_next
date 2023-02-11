@@ -1,6 +1,3 @@
-import dynamic from 'next/dynamic';
-import { useState, useEffect } from 'react';
-import { useRouter} from 'next/router';
 import Link from 'next/link'
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';

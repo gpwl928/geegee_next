@@ -1,11 +1,8 @@
 import Head from 'next/head';
-// import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from '@emotion/react';
 import { InitTheme } from '../styles/Theme';
 import ResetCss from '../styles/ResetCss';
-import Header from '@/components/layout/GGHeader';
-import Footer from '@/components/layout/GGFooter';
 
 const App = ({ Component, pageProps }: AppProps) => {
   

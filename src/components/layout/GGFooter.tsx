@@ -1,9 +1,6 @@
 import React from "react";
-import Link from 'next/link'
-import { useRouter } from "next/router";
+import Link from 'next/link';
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
-import { SerializedStyles } from '@emotion/utils';
 
 const MainFooter = styled.footer`
   padding: 50px 30px 60px;
