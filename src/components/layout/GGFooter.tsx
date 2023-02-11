@@ -32,6 +32,7 @@ const ContentBox = styled.div`
 const Content = styled.p`
   font-size: 14px;
   line-height: 1.2;
+  white-space: pre-line;
 `;
 
 const POLICY_LIST = [
