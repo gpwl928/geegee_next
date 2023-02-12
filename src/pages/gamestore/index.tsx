@@ -71,6 +71,18 @@ const SlickBox = styled.div`
     width: 32px;
     height: 32px;
     background: center / cover no-repeat url("/Images/common/btn_prev.png");
+    &:hover {
+      @media (hover: hover) and (pointer: fine) {
+        &::after {
+          content: '';
+          display: inline-block;
+          background: rgba(255, 255, 255, 0.1);
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+        }
+      }
+    }
   }
   position: relative;
   .slick-list {
