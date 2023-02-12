@@ -191,7 +191,6 @@ const Visual = ():React.ReactElement => {
               active={item.gameName === currentItem}
               onClick={() => onSelectList(item)}
             >
-              {/* onclick 이벤트 왜 함수로 해야하지? */}
               <ContentLogo logoBoxImg={item.logoBoxImg} />
               <ContentsBox>
                 <ContentTitle>{item.gameName}</ContentTitle>
