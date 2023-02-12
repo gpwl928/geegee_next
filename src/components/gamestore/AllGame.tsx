@@ -1,6 +1,15 @@
 import { useState } from 'react';
 import Link from 'next/link'
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
+
+const TagListActive = css`
+  background: #7e87ff;
+  border: 1px solid #7e87ff;
+  span {
+    color: #0e114b;
+  }
+`;
 
 const TagListItems = styled.div`
   display: flex;
@@ -25,15 +34,16 @@ const TagListItem = styled.label`
       color: inherit;
     }
   }
+  &:hover {
+    @media (hover: hover) and (pointer: fine) {
+      ${TagListActive}
+    }
+  }
 `;
 const CheckBox = styled.input`
   display: none;
   &:checked + ${TagListItem} {
-      background: ${(props):string => props.theme.textPointColor};
-      border: 1px solid ${(props):string => props.theme.textPointColor};
-      span {
-        color: #0e114b;
-      }
+    ${TagListActive}
   }
 `;
 const GameListItems = styled.ul`
