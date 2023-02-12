@@ -58,23 +58,19 @@ const Title = styled.h1`
   }
 `;
 const PrevSlideBtn = styled.button`
-  top: -50px;
   right: 40px;
-  background: url("/Images/common/btn_prev.png");
 `;
 const NextSlideBtn = styled.button`
-  top: -50px;
   right: 0;
-  background: url("/Images/common/btn_next.png");
+  transform: scaleX(-1);
 `;
 const SlickBox = styled.div`
   ${PrevSlideBtn}, ${NextSlideBtn} {
-  position: absolute;
+    position: absolute;
+    top: -50px;
     width: 32px;
     height: 32px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: center / cover no-repeat url("/Images/common/btn_prev.png");
   }
   position: relative;
   .slick-list {
