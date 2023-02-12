@@ -165,7 +165,7 @@ const MoreBtn = styled.button`
 
 
 const TAG_LIST = [
-  'all', 'mmorpg', 'role playing', 'fps', 'adventure', 'action rpg', 'moba', 'arcade', 'racing', 'action', 'shooting'
+  'all', 'mmorpg', 'role playing', 'fps', 'adventure', 'action rpg', 'moba', 'arcade', 'racing', 'action', 'shooting', 'mmo', 'casual'
 ]
 
 const GAME_LIST = [
@@ -239,15 +239,44 @@ const AllGame = ():React.ReactElement => {
   const [currentList, setCurrentList] = useState(GAME_LIST);
 
   const onSeclectTag = (event: any):void => {
-    console.log(event);
     let select = event.target.id;
-    if (select === 'all') {
+    let active = event.target.checked;
+    let checkNameAll = document.querySelectorAll("input[name=all]");
+    let checkNameTag = document.querySelectorAll("input[name=tag]");
+    let checkedList = document.querySelectorAll("input[name=tag]:checked");
+    let selectTagArray = [];
+
+    checkedList.forEach((list): any => {
+      let id = list.id;
+      if (id === 'all') return;
+      else {
+        selectTagArray.push(id);
+      }
+    })
+
+    console.log(selectTagArray);
+
+    if (select === 'all' && active) {
+      checkNameTag.forEach((list): any => {
+        list.checked = false;
+      })
       setCurrentList(GAME_LIST);
     } else {
-      let data  = GAME_LIST.filter((item: any) => item.genre.find((item: any) => item === select));
-      console.log('data', data);
-      setCurrentList(data);
-      console.log(currentList);
+      console.log(checkNameAll);
+
+      let data = [];
+      let deduplicationData;
+
+      checkNameAll[0].checked = false;
+
+      for (const selecTag of selectTagArray) {
+        let item = GAME_LIST.find((item: any) => item.genre.find((item: any) => item === selecTag));
+        
+        item && data.push(item);
+      }
+      deduplicationData = data.filter((item, index) => data.indexOf(item) === index);
+
+      setCurrentList(deduplicationData);
     }
   };
 
