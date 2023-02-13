@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link'
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
@@ -238,43 +238,47 @@ const GAME_LIST = [
 const AllGame = ():React.ReactElement => {
   const [currentList, setCurrentList] = useState(GAME_LIST);
 
+  useEffect(() => {
+    const checkNameAll = document.querySelector("input[name=all]");
+    checkNameAll.checked = true;
+  }, [])
+
   const onSeclectTag = (event: any):void => {
-    let select = event.target.id;
-    let active = event.target.checked;
-    let checkNameAll = document.querySelectorAll("input[name=all]");
-    let checkNameTag = document.querySelectorAll("input[name=tag]");
-    let checkedList = document.querySelectorAll("input[name=tag]:checked");
+    const select = event.target.id;
+    const active = event.target.checked;
+    const checkNameAll = document.querySelector("input[name=all]");
+    const checkNameTag = document.querySelectorAll("input[name=tag]");
+    const checkedList = document.querySelectorAll("input[name=tag]:checked");
     let selectTagArray = [];
 
     checkedList.forEach((list): any => {
-      let id = list.id;
+      const id = list.id;
+
       if (id === 'all') return;
       else {
         selectTagArray.push(id);
       }
     })
 
-    console.log(selectTagArray);
-
     if (select === 'all' && active) {
+      // all tag 클릭 시 tag false 처리
       checkNameTag.forEach((list): any => {
         list.checked = false;
       })
       setCurrentList(GAME_LIST);
     } else {
-      console.log(checkNameAll);
-
       let data = [];
-      let deduplicationData;
 
-      checkNameAll[0].checked = false;
-
+      // all tag false 처리
+      checkNameAll.checked = false;
+      // 새 배열 만들기
       for (const selecTag of selectTagArray) {
-        let item = GAME_LIST.find((item: any) => item.genre.find((item: any) => item === selecTag));
+        const item = GAME_LIST.find((item: any) => item.genre.find((item: any) => item === selecTag));
         
         item && data.push(item);
       }
-      deduplicationData = data.filter((item, index) => data.indexOf(item) === index);
+
+      const deduplicationData = data.filter((item, index) => data.indexOf(item) === index);
 
       setCurrentList(deduplicationData);
     }
